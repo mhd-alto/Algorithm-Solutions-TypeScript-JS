@@ -1,5 +1,6 @@
 import { floodFill } from "./floodFillAlgorithm.js";
 import { trapRainwater,displayResults } from "./trapRainwaterAlgorithm.js";
+import { displayClimbStairs } from "./climbStairsAlgorithm.js";
 
 console.log("floodFill:");
 
@@ -80,4 +81,14 @@ testCases.forEach((test, index) => {
 });
 
 console.log('└────────────┴─────────────────────────┴─────────────┘');
+
+
+console.log("CLIMBING STAIRS TEST");
+const testClimbingCases:number[] = [1, 2, 3, 4, 5, 6, 10];
+console.log("\n" + "=".repeat(40));
+console.log("=".repeat(40));
+
+testClimbingCases.forEach(stair => {
+    displayClimbStairs(stair);
+});
 
