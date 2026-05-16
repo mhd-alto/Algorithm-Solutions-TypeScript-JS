@@ -1,0 +1,20 @@
+{
+  "name": "algorithm-solutions-typescript-js",
+  "version": "1.0.0",
+  "description": "Flood Fill · Trapping Rain · Climb Stairs · Jump Game · Rod Cutting · Histogram · Max Rectangle",
+  "homepage": "https://github.com/mhd-alto/Algorithm-Solutions-TypeScript-JS#readme",
+  "bugs": {
+    "url": "https://github.com/mhd-alto/Algorithm-Solutions-TypeScript-JS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhd-alto/Algorithm-Solutions-TypeScript-JS.git"
+  },
+  "license": "ISC",
+  "author": "MhdAlto",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
