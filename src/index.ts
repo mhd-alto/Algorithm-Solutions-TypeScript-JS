@@ -2,6 +2,7 @@ import { floodFill } from "./floodFillAlgorithm.js";
 import { trapRainwater,displayResults } from "./trapRainwaterAlgorithm.js";
 import { displayClimbStairs } from "./climbStairsAlgorithm.js";
 import { displayCanJump } from "./canJumpAlgorithm.js";
+import { displayRodCutting } from "./rodCuttingMaxAlgorithm.js";
 
 console.log("floodFill:");
 
@@ -108,3 +109,6 @@ testJumpCases.forEach(nums => {
     displayCanJump(nums);
 });
 
+
+console.log("RodCutting:")
+displayRodCutting([0, 1, 5, 8, 9, 10, 17, 17, 20], 8);
