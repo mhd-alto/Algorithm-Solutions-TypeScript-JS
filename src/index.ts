@@ -3,6 +3,7 @@ import { trapRainwater,displayResults } from "./trapRainwaterAlgorithm.js";
 import { displayClimbStairs } from "./climbStairsAlgorithm.js";
 import { displayCanJump } from "./canJumpAlgorithm.js";
 import { displayRodCutting } from "./rodCuttingMaxAlgorithm.js";
+import {displayLargestRectangle} from "./largestRectangleInHistogramAlgorithm.js"
 
 console.log("floodFill:");
 
@@ -112,3 +113,23 @@ testJumpCases.forEach(nums => {
 
 console.log("RodCutting:")
 displayRodCutting([0, 1, 5, 8, 9, 10, 17, 17, 20], 8);
+
+
+console.log("LARGEST RECTANGLE IN HISTOGRAM");
+const testHistogramCases: number[][] = [
+    [2, 1, 5, 6, 2, 3],  // Classic case -> 10
+    [2, 4],               // -> 4
+    [1, 1, 1, 1],        // -> 4
+    [1, 2, 3, 4, 5],     // -> 9
+    [5, 4, 3, 2, 1],     // -> 9
+    [1],                  // -> 1
+    [0, 0, 0],           // -> 0
+    [6, 2, 5, 4, 5, 1, 6] // -> 12
+];
+    
+    console.log("\n" + "=".repeat(50));
+    console.log("=".repeat(50));
+    
+    testHistogramCases.forEach(heights => {
+        displayLargestRectangle(heights);
+    });
