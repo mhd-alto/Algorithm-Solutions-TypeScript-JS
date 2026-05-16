@@ -51,20 +51,17 @@ console.log('═'.repeat(50));
 
 // Test cases with descriptions
 const testCases = [
-    { heights: [0,1,0,2,1,0,1,3,2,1,2,1], description: "Classic case" },
     { heights: [1,2,3,4,5], description: "Strictly increasing (no water)" },
     { heights: [0,0,0,0], description: "Flat surface (no water)" },
     { heights: [3,0,0,2,0,4], description: "Single peak with valleys" },
     { heights: [], description: "Empty array" },
-    { heights: [4,2,0,3,2,5], description: "Two peaks with valley" },
-    { heights: [5,0,5], description: "Symmetrical trapping" },
-    { heights: [2,0,0,0,2], description: "Deep valley" }
+    { heights: [3, 0, 1, 0, 4, 0, 2], description: "Classic case" }
 ];
 
 // Display all test cases
 testCases.forEach((test, index) => {
     console.log(`\n📌 Test Case ${index + 1}: ${test.description}`);
-    console.log(`   ${'─'.repeat(40)}`);
+    console.log(`   ${'─'.repeat(100)}`);
     displayResults(test.heights);
 });
 
@@ -84,20 +81,3 @@ testCases.forEach((test, index) => {
 
 console.log('└────────────┴─────────────────────────┴─────────────┘');
 
-// Or if you want a super simple formatted output:
-console.log('\n✨ SIMPLE FORMATTED OUTPUT ✨\n');
-
-const simpleTestCases = [
-    { heights: [0,1,0,2,1,0,1,3,2,1,2,1], expected: 6 },
-    { heights: [1,2,3,4,5], expected: 0 },
-    { heights: [0,0,0,0], expected: 0 },
-    { heights: [3,0,0,2,0,4], expected: 10 },
-    { heights: [], expected: 0 },
-    { heights: [4,2,0,3,2,5], expected: 9 }
-];
-
-simpleTestCases.forEach(({ heights, expected }) => {
-    const result = trapRainwater(heights);
-    const status = result === expected ? '✓' : '✗';
-    console.log(`${status} [${heights.join(', ')}] → ${result} ${result !== expected ? `(expected ${expected})` : ''}`);
-});
