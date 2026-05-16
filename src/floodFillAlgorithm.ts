@@ -13,7 +13,7 @@ const floodFill = (
     
     if (sr < 0 || sr >= rows || sc < 0 || sc >= cols) return image;
     
-    // Fix 1: Use non-null assertion or check existence
+    //  1: Use non-null assertion or check existence
     const targetRow = image[sr];
     if (!targetRow) return image;
     const oldColor = targetRow[sc];
@@ -21,7 +21,7 @@ const floodFill = (
     if (oldColor === newColor) return image;
     
     const dfs = (r: number, c: number): void => {
-        // Fix 2: Check if row exists before accessing
+        //  2: Check if row exists before accessing
         if (r < 0 || r >= rows || c < 0 || c >= cols) return;
         
         const currentRow = image[r];
@@ -29,7 +29,7 @@ const floodFill = (
         
         if (currentRow[c] !== oldColor) return;
         
-        // Fix 3: Use non-null assertion after checks
+        //  3: Use non-null assertion after checks
         image[r]![c] = newColor;
         
         dfs(r + 1, c);

@@ -1,4 +1,5 @@
 import { floodFill } from "./floodFillAlgorithm.js";
+import { trapRainwater,displayResults } from "./trapRainwaterAlgorithm.js";
 
 console.log("floodFill:");
 
@@ -43,3 +44,60 @@ printComparison(image3, result3, "Example 3: Same color (no change expected)");
 const image4 = [[5]];
 const result4 = floodFill([...image4.map(row => [...row])], 0, 0, 9);
 printComparison(image4, result4, "Example 4: Edge case - single pixel");
+
+
+console.log('\n🏔️  TRAPPED RAINWATER CALCULATOR 🏔️\n');
+console.log('═'.repeat(50));
+
+// Test cases with descriptions
+const testCases = [
+    { heights: [0,1,0,2,1,0,1,3,2,1,2,1], description: "Classic case" },
+    { heights: [1,2,3,4,5], description: "Strictly increasing (no water)" },
+    { heights: [0,0,0,0], description: "Flat surface (no water)" },
+    { heights: [3,0,0,2,0,4], description: "Single peak with valleys" },
+    { heights: [], description: "Empty array" },
+    { heights: [4,2,0,3,2,5], description: "Two peaks with valley" },
+    { heights: [5,0,5], description: "Symmetrical trapping" },
+    { heights: [2,0,0,0,2], description: "Deep valley" }
+];
+
+// Display all test cases
+testCases.forEach((test, index) => {
+    console.log(`\n📌 Test Case ${index + 1}: ${test.description}`);
+    console.log(`   ${'─'.repeat(40)}`);
+    displayResults(test.heights);
+});
+
+// Alternative: Simple tabular format
+console.log('\n📈 SUMMARY TABLE 📈\n');
+console.log('┌────────────┬─────────────────────────┬─────────────┐');
+console.log('│ Test Case  │ Heights                 │ Water Units │');
+console.log('├────────────┼─────────────────────────┼─────────────┤');
+
+testCases.forEach((test, index) => {
+    const heightsStr = JSON.stringify(test.heights).slice(0, 23);
+    const water = trapRainwater(test.heights);
+    const paddedHeights = heightsStr.padEnd(23);
+    const paddedWater = String(water).padStart(11);
+    console.log(`│ Test ${(index + 1).toString().padEnd(2)}   │ ${paddedHeights} │ ${paddedWater} │`);
+});
+
+console.log('└────────────┴─────────────────────────┴─────────────┘');
+
+// Or if you want a super simple formatted output:
+console.log('\n✨ SIMPLE FORMATTED OUTPUT ✨\n');
+
+const simpleTestCases = [
+    { heights: [0,1,0,2,1,0,1,3,2,1,2,1], expected: 6 },
+    { heights: [1,2,3,4,5], expected: 0 },
+    { heights: [0,0,0,0], expected: 0 },
+    { heights: [3,0,0,2,0,4], expected: 10 },
+    { heights: [], expected: 0 },
+    { heights: [4,2,0,3,2,5], expected: 9 }
+];
+
+simpleTestCases.forEach(({ heights, expected }) => {
+    const result = trapRainwater(heights);
+    const status = result === expected ? '✓' : '✗';
+    console.log(`${status} [${heights.join(', ')}] → ${result} ${result !== expected ? `(expected ${expected})` : ''}`);
+});
