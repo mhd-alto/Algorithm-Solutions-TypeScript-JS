@@ -1,6 +1,7 @@
 import { floodFill } from "./floodFillAlgorithm.js";
 import { trapRainwater,displayResults } from "./trapRainwaterAlgorithm.js";
 import { displayClimbStairs } from "./climbStairsAlgorithm.js";
+import { displayCanJump } from "./canJumpAlgorithm.js";
 
 console.log("floodFill:");
 
@@ -90,5 +91,20 @@ console.log("=".repeat(40));
 
 testClimbingCases.forEach(stair => {
     displayClimbStairs(stair);
+});
+
+console.log("JUMP GAME - TEST RESULTS");
+const testJumpCases: number[][] = [
+    [2, 3, 1, 1, 4],  // true
+    [3, 2, 1, 0, 4],  // false
+    [0],               // true
+    [3, 0, 0, 2, 0, 1] // true
+];
+
+console.log("\n" + "=".repeat(50));
+console.log("=".repeat(50));
+
+testJumpCases.forEach(nums => {
+    displayCanJump(nums);
 });
 

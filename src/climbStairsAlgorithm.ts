@@ -1,5 +1,4 @@
-// Climb Stairs - TypeScript version
-function climbStairs(n: number): number {
+const climbStairs = (n: number): number => {
     if (n <= 2) return n;
     let prev1: number = 1;
     let prev2: number = 2;
